@@ -78,7 +78,7 @@ export default function App() {
     <div
       style={{
         minHeight: "100vh",
-        background: "#020618",
+        background: "radial-gradient(circle at 12% -10%, rgba(0,231,255,0.16), transparent 30%), radial-gradient(circle at 82% 0%, rgba(245,199,107,0.10), transparent 28%), linear-gradient(180deg, #061126 0%, #030713 44%, #01030A 100%)",
         color: C.text,
         fontFamily: "'Inter', 'SF Pro Display', system-ui, sans-serif",
       }}
@@ -86,8 +86,9 @@ export default function App() {
       {/* ── 13-Frame Navigator ─────────────────────────────────────────── */}
       <div
         style={{
-          background: "#030d1a",
-          borderBottom: `1px solid rgba(0,240,255,0.1)`,
+          background: "linear-gradient(180deg, rgba(7,17,34,0.98), rgba(3,7,19,0.96))",
+          borderBottom: `1px solid rgba(111,246,255,0.16)`,
+          boxShadow: "0 18px 50px rgba(0,0,0,0.34), inset 0 1px 0 rgba(255,255,255,0.05)",
           padding: "8px 20px",
           display: "flex",
           alignItems: "center",
@@ -176,9 +177,9 @@ export default function App() {
             style={{
               width: LAYOUT_WIDTHS[activeFrame],
               maxWidth: "100%",
-              background: "#020618",
+              background: "linear-gradient(180deg, rgba(6,17,38,0.98), rgba(2,7,19,1))",
               boxShadow: activeFrame !== "desktop"
-                ? "0 0 80px rgba(0,0,0,0.9), 0 0 0 1px rgba(0,240,255,0.1)"
+                ? "0 30px 120px rgba(0,0,0,0.92), 0 0 0 1px rgba(111,246,255,0.16), 0 0 70px rgba(0,231,255,0.10)"
                 : undefined,
               borderRadius: activeFrame !== "desktop" ? 14 : undefined,
               overflow: activeFrame !== "desktop" ? "hidden" : undefined,
@@ -388,8 +389,8 @@ export default function App() {
         *, *::before, *::after { box-sizing: border-box; }
         ::-webkit-scrollbar { width: 4px; height: 4px; }
         ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: rgba(0,240,255,0.2); border-radius: 2px; }
-        ::-webkit-scrollbar-thumb:hover { background: rgba(0,240,255,0.4); }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, rgba(0,231,255,0.36), rgba(245,199,107,0.26)); border-radius: 999px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(0,231,255,0.55); }
         @keyframes pulse {
           0%, 100% { opacity: 1; }
           50% { opacity: 0.4; }

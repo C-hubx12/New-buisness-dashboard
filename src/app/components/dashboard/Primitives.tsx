@@ -10,12 +10,12 @@ interface GlassCardProps {
 }
 export function GlassCard({ children, style, className = "", glow = "cyan" }: GlassCardProps) {
   const glowMap = {
-    cyan: `0 0 24px rgba(0,240,255,0.12)`,
-    purple: `0 0 24px rgba(168,85,247,0.15)`,
-    success: `0 0 20px rgba(34,197,94,0.15)`,
-    warning: `0 0 20px rgba(245,158,11,0.2)`,
-    critical: `0 0 20px rgba(239,68,68,0.2)`,
-    none: "none",
+    cyan: "0 24px 70px rgba(0,0,0,0.46), 0 0 42px rgba(0,231,255,0.13)",
+    purple: "0 24px 70px rgba(0,0,0,0.46), 0 0 42px rgba(155,109,255,0.15)",
+    success: "0 24px 70px rgba(0,0,0,0.46), 0 0 34px rgba(53,229,138,0.14)",
+    warning: "0 24px 70px rgba(0,0,0,0.46), 0 0 38px rgba(245,199,107,0.18)",
+    critical: "0 24px 70px rgba(0,0,0,0.46), 0 0 38px rgba(255,77,109,0.18)",
+    none: "0 20px 56px rgba(0,0,0,0.38)",
   };
   const borderMap = {
     cyan: C.cyanBorder,
@@ -29,15 +29,25 @@ export function GlassCard({ children, style, className = "", glow = "cyan" }: Gl
     <div
       className={className}
       style={{
-        background: "rgba(7,19,39,0.9)",
-        backdropFilter: "blur(14px)",
+        position: "relative",
+        overflow: "hidden",
+        background: "linear-gradient(145deg, rgba(13,30,55,0.94) 0%, rgba(7,16,33,0.97) 52%, rgba(3,7,17,0.98) 100%)",
+        backdropFilter: "blur(18px) saturate(145%)",
         border: `1px solid ${borderMap[glow]}`,
-        borderRadius: "12px",
-        boxShadow: glowMap[glow],
+        borderRadius: "18px",
+        boxShadow: `inset 0 1px 0 rgba(255,255,255,0.085), inset 0 -1px 0 rgba(0,231,255,0.035), ${glowMap[glow]}`,
         ...style,
       }}
     >
-      {children}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          pointerEvents: "none",
+          background: "radial-gradient(circle at 12% 0%, rgba(0,231,255,0.13), transparent 34%), radial-gradient(circle at 90% 8%, rgba(245,199,107,0.08), transparent 30%), linear-gradient(180deg, rgba(255,255,255,0.045), transparent 28%)",
+        }}
+      />
+      <div style={{ position: "relative", zIndex: 1 }}>{children}</div>
     </div>
   );
 }
@@ -130,15 +140,15 @@ export function PrimaryBtn({ children, onClick, small }: { children: React.React
         alignItems: "center",
         gap: 6,
         padding: small ? "5px 12px" : "8px 18px",
-        borderRadius: 8,
-        background: "linear-gradient(135deg, #00F0FF 0%, #0A84FF 100%)",
+        borderRadius: 12,
+        background: "linear-gradient(135deg, #6EF6FF 0%, #00E7FF 42%, #157BFF 100%)",
         color: "#020618",
         fontSize: small ? 11 : 13,
         fontWeight: 700,
         border: "none",
         cursor: "pointer",
         letterSpacing: "0.02em",
-        boxShadow: "0 0 16px rgba(0,240,255,0.3)",
+        boxShadow: "0 10px 26px rgba(0,231,255,0.24), inset 0 1px 0 rgba(255,255,255,0.42)",
         transition: "all 0.15s",
         whiteSpace: "nowrap",
       }}
@@ -158,8 +168,8 @@ export function SecondaryBtn({ children, onClick, small }: { children: React.Rea
         alignItems: "center",
         gap: 6,
         padding: small ? "4px 10px" : "7px 16px",
-        borderRadius: 8,
-        background: "rgba(0,240,255,0.06)",
+        borderRadius: 12,
+        background: "linear-gradient(180deg, rgba(0,231,255,0.10), rgba(0,231,255,0.035))",
         color: C.cyan,
         fontSize: small ? 11 : 13,
         fontWeight: 600,
@@ -185,8 +195,8 @@ export function WarningBtn({ children, onClick, small }: { children: React.React
         alignItems: "center",
         gap: 6,
         padding: small ? "5px 12px" : "8px 18px",
-        borderRadius: 8,
-        background: "linear-gradient(135deg, #F59E0B 0%, #D97706 100%)",
+        borderRadius: 12,
+        background: "linear-gradient(135deg, #F8D58A 0%, #F5B84B 48%, #B96E12 100%)",
         color: "#020618",
         fontSize: small ? 11 : 13,
         fontWeight: 700,
@@ -212,8 +222,8 @@ export function CriticalBtn({ children, onClick, small }: { children: React.Reac
         alignItems: "center",
         gap: 6,
         padding: small ? "5px 12px" : "8px 18px",
-        borderRadius: 8,
-        background: "linear-gradient(135deg, #EF4444 0%, #F6465D 100%)",
+        borderRadius: 12,
+        background: "linear-gradient(135deg, #FF7C8F 0%, #FF4D6D 52%, #CB233F 100%)",
         color: "#ffffff",
         fontSize: small ? 11 : 13,
         fontWeight: 700,

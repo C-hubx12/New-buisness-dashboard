@@ -27,9 +27,10 @@ export function DashboardHeader({ onOpenDrawer }: Props) {
   return (
     <div
       style={{
-        background: "rgba(5,16,24,0.98)",
+        background: "linear-gradient(180deg, rgba(8,19,39,0.985), rgba(3,8,20,0.965))",
         borderBottom: `1px solid ${C.cyanBorder}`,
-        backdropFilter: "blur(16px)",
+        backdropFilter: "blur(20px) saturate(150%)",
+        boxShadow: "0 18px 60px rgba(0,0,0,0.38), inset 0 1px 0 rgba(255,255,255,0.055)",
         position: "sticky",
         top: 0,
         zIndex: 100,
@@ -57,8 +58,8 @@ export function DashboardHeader({ onOpenDrawer }: Props) {
               <span
                 style={{
                   color: C.text,
-                  fontSize: 17,
-                  fontWeight: 800,
+                  fontSize: 18,
+                  fontWeight: 900,
                   letterSpacing: "-0.3px",
                 }}
               >
@@ -83,7 +84,7 @@ export function DashboardHeader({ onOpenDrawer }: Props) {
                 STAFF ONLY
               </span>
             </div>
-            <div style={{ color: C.textMuted, fontSize: 11, marginTop: 1 }}>
+            <div style={{ color: C.textDim, fontSize: 11, marginTop: 1 }}>
               Staff-only treasury, finance, liquidity and operational intelligence
             </div>
           </div>
